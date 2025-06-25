@@ -1,20 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import AppNavigator from './navigtion/AppNavigator'
 
 const FinTrack = () => {
   return (
-    <View style={styles.container}>
-      <Text>FinTrack</Text>
-    </View>
+    <AppNavigator />
   )
 }
 
 export default FinTrack
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  }
-})
