@@ -1,10 +1,17 @@
-import React from 'react'
-import AppNavigator from './navigtion/AppNavigator'
+import React, { useEffect } from 'react';
+import AppNavigator from './navigtion/AppNavigator';
+import auth from '@react-native-firebase/auth';
 
 const FinTrack = () => {
-  return (
-    <AppNavigator />
-  )
-}
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged((user) => {
+      console.log('User state changed: ', user?.email || 'Logged out');
+    });
 
-export default FinTrack
+    return () => unsubscribe(); // Clean up on unmount
+  }, []);
+
+  return <AppNavigator />;
+};
+
+export default FinTrack;
